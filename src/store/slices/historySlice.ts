@@ -69,18 +69,21 @@ const historySlice = createSlice({
       const nodeId = action.payload;
       const history = state.nodeHistories[nodeId];
       if (history && history.past.length > 0) {
-        const previous = history.past.pop()!;
+        const previous = history.past[history.past.length - 1];
         history.future.unshift({ color: history.current.color });
         history.current.color = previous.color;
+        history.past.pop();
       }
     },
+
     redoColor: (state, action: PayloadAction<string>) => {
       const nodeId = action.payload;
       const history = state.nodeHistories[nodeId];
       if (history && history.future.length > 0) {
-        const next = history.future.shift()!;
+        const next = history.future[0];
         history.past.push({ color: history.current.color });
         history.current.color = next.color;
+        history.future.shift();
       }
     },
     undoFontSize: (state, action: PayloadAction<string>) => {
