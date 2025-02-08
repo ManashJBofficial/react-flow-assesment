@@ -27,15 +27,7 @@ const graphSlice = createSlice({
     setSelectedNode: (state, action: PayloadAction<string | null>) => {
       state.selectedNode = action.payload;
     },
-    updateNodePosition: (
-      state,
-      action: PayloadAction<{ id: string; position: { x: number; y: number } }>
-    ) => {
-      const node = state.nodes.find((n) => n.id === action.payload.id);
-      if (node) {
-        node.position = action.payload.position;
-      }
-    },
+
     updateNodeColor: (
       state,
       action: PayloadAction<{ nodeId: string; color: string }>
@@ -69,7 +61,6 @@ export const {
   setNodes,
   setEdges,
   setSelectedNode,
-  updateNodePosition,
   updateNodeColor,
   updateNodeFontSize,
 } = graphSlice.actions;

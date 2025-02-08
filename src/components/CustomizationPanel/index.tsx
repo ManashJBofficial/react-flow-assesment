@@ -139,7 +139,7 @@ export const NodeCustomizationPanel = () => {
       className="bg-white p-4 rounded-lg shadow-lg"
       style={style}
     >
-      <h3 className="mb-4">Node {selectedNode} Customization</h3>
+      <h3 className="mb-4">{selectedNode} Customization</h3>
 
       <div className="mb-4">
         <div className="flex justify-between items-center mb-2">
